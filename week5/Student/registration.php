@@ -12,6 +12,7 @@ $student_id = $_POST['student_id']; // New field
 $class_name = $_POST['class_name']; // New field
 $date_of_birth = $_POST['date_of_birth']; // New field
 
+
 /* select data from DB to check for duplicate name */
 $s="select * from userReg where name='$name'";
 
