@@ -1,14 +1,25 @@
 <?php
 include "connection.php";
 
+
 $id=$_GET["id"];
-mysqli_query($link,"delete from table1 where id=$id");
-header("location.index.php");
+//  GET SOME IN4 ABOUT THE ITEM TO BE DELATE (OPTIONAL_)
+$res=mysqli_query($link," SELECT * FROM table1 WHERE id=$id");
+$item = mysqli_fetch_array($res);
+
+if (isset($_GET['confirm']) && $_GET['confirm'] === 'yes') {
+    $delete_query = "DELETE FROM table1 WHERE id=$id";
+      mysqli_query($link, $delete_query) or die(mysqli_error($link));
+      header("location:index.php");
+}
 ?>
 
-<script type="text/javascript">
- window.location="index.php";
-    </script>
+<!-- print out confirm message to user  -->
+<p>Are you sure to delete item <?php echo $id ?> </p>
+<button><a href="delete.php?id=<?php echo $id ?>&confirm=yes">Yes</a></button>
+<button><a href="index.php">No</a></button>
+
+
 
 
 
