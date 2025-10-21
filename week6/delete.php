@@ -15,7 +15,7 @@ if (isset($_GET['confirm']) && $_GET['confirm'] === 'yes') {
 ?>
 
 <!-- print out confirm message to user  -->
-<p>Are you sure to delete item <?php echo $id ?> </p>
+<h1>Are you sure to delete item <?php echo $item["firstname"] . "" . $item["lastname"]; ?>?<h1>
 <button><a href="delete.php?id=<?php echo $id ?>&confirm=yes">Yes</a></button>
 <button><a href="index.php">No</a></button>
 
